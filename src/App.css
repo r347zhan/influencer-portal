@@ -1,42 +1,187 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111827;
+  background-color: #f3f4f6;
+}
+
+body {
+  margin: 0;
+}
+
 #root {
-  max-width: 1280px;
+  min-height: 100vh;
+}
+
+
+.campaign-header {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.logo-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: #fbbf24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.campaign-header h1 {
+  margin: 0 0 4px;
+  font-size: 28px;
+}
+
+.brand-line {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.campaign-desc {
+  margin: 4px 0 0;
+  color: #4b5563;
+}
+
+/* Tabs */
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 16px;
+}
+
+.tab {
+  border: none;
+  background: transparent;
+  padding: 10px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #6b7280;
+  border-bottom: 2px solid transparent;
+}
+
+.tab--active {
+  color: #4f46e5;
+  border-bottom-color: #4f46e5;
+  font-weight: 600;
+}
+
+.tab-content {
+  margin-top: 8px;
+}
+
+/* 卡片 + 表格 */
+
+.page {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+  padding: 40px;
 }
 
 .card {
-  padding: 2em;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 16px 24px;
+  width: 100%;
 }
 
-.read-the-docs {
-  color: #888;
+.influencer-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.influencer-table th,
+.influencer-table td {
+  padding: 12px 8px;
+  text-align: left;
+}
+
+.influencer-table thead {
+  border-bottom: 1px solid #e5e7eb;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.influencer-table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.name-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #111827;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.handle {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.notes-cell {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* ===== Audience: Gender ===== */
+.gender-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.gender-label {
+  width: 60px;
+  font-weight: 500;
+}
+
+.gender-bar {
+  flex: 1;
+  height: 12px;
+  border-radius: 999px;
+  background: #e5e7eb;   /* 灰色底条 */
+  overflow: hidden;
+}
+
+.gender-bar .bar-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.gender-bar.male .bar-fill {
+  background: #4f46e5;   /* 男：蓝色 */
+}
+
+.gender-bar.female .bar-fill {
+  background: #f97373;   /* 女：红色 */
+}
+
+.gender-value {
+  width: 40px;
+  text-align: right;
+  font-weight: 500;
 }

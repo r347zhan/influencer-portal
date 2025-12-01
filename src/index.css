@@ -1,68 +1,489 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111827;
+  background-color: #f3f4f6;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+}
+
+#root {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* 整个页面的宽度和内边距 */
+.page {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 80px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* 顶部 Campaign 区域 */
+
+.campaign-header {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.logo-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: #fbbf24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.campaign-header h1 {
+  margin: 0 0 4px;
+  font-size: 28px;
+}
+
+.brand-line {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.campaign-desc {
+  margin: 4px 0 0;
+  color: #4b5563;
+}
+
+/* Tabs */
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 16px;
+}
+
+.tab {
+  border: none;
+  background: transparent;
+  padding: 10px 16px;
+  font-size: 14px;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  color: #6b7280;
+  border-bottom: 2px solid transparent;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.tab--active {
+  color: #4f46e5;
+  border-bottom-color: #4f46e5;
+  font-weight: 600;
+}
+
+.tab-content {
+  margin-top: 8px;
+}
+
+/* 卡片 + 表格 */
+
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  padding: 16px 24px;
+  width: 100%;
+}
+
+.influencer-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.influencer-table th,
+.influencer-table td {
+  padding: 12px 8px;
+  text-align: left;
+}
+
+.influencer-table thead {
+  border-bottom: 1px solid #e5e7eb;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.influencer-table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+/* Name 单元格布局 */
+
+.name-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #111827;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.handle {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.notes-cell {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.post-filters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.filter-select {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.filter-select select {
+  min-width: 140px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  background-color: #f9fafb;
+}
+
+/* Stats */
+
+.stats-card {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.stats-section {
+  margin-top: 8px;
+}
+
+.stats-title {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.stat-box {
+  border-radius: 14px;
+  padding: 14px 16px;
+  background: #f9fafb;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* 卡片容器，和你其他 stats 卡片统一风格 */
+.stats-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+  padding: 24px 28px 32px;
+  margin-bottom: 32px;
+}
+
+.stats-section__title {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Media Overview 自己的布局 */
+.media-overview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.media-card {
+  background: #f9fafb;
+  border-radius: 20px;
+  padding: 32px 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.media-card__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #111827;
+}
+
+.media-card__label {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.media-card__value {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* Gender样式 */
+.gender-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.gender-bar {
+  flex: 1;
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.gender-bar .bar-fill {
+  height: 100%;
+  background: #4f46e5;
+}
+
+.gender-label {
+  width: 60px;
+}
+
+.gender-value {
+  width: 40px;
+  text-align: right;
+}
+
+/* Age样式 */
+.age-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.age-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.age-label {
+  width: 50px;
+  font-size: 14px;
+}
+
+.age-bars {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+}
+
+.age-bar {
+  height: 12px;
+  flex: 1;
+  background: #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.age-bar.male .bar-fill {
+  background: #4f46e5;
+}
+
+.age-bar.female .bar-fill {
+  background: #ef4444;
+}
+
+.age-values {
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.age-values .male {
+  color: #4f46e5;
+}
+.age-values .female {
+  color: #ef4444;
+}
+
+/* location样式 */
+.location-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.location-row {
+  display: grid;
+  grid-template-columns: 28px 1fr 1fr 60px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.location-rank {
+  font-weight: 600;
+  color: #4f46e5;
+}
+
+.location-name {
+  font-size: 14px;
+}
+
+.location-bar {
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.location-bar .bar-fill {
+  height: 100%;
+  background: #4f46e5;
+}
+
+.location-value {
+  font-size: 14px;
+  text-align: right;
+}
+
+/* ===== Audience: Gender ===== */
+.gender-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.gender-label {
+  width: 60px;
+  font-weight: 500;
+}
+
+.gender-bar {
+  flex: 1;
+  height: 12px;
+  border-radius: 999px;
+  background: #e5e7eb;   /* 灰色底条 */
+  overflow: hidden;
+}
+
+.gender-bar .bar-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.gender-bar.male .bar-fill {
+  background: #4f46e5;   /* 男：蓝色 */
+}
+
+.gender-bar.female .bar-fill {
+  background: #f97373;   /* 女：红色 */
+}
+
+.gender-value {
+  width: 40px;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* ===== Audience: Age ===== */
+.age-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.age-label {
+  width: 60px;
+  font-weight: 500;
+}
+
+.age-bars {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+}
+
+.age-bar {
+  flex: 1;
+  height: 10px;
+  border-radius: 999px;
+  background: #e5e7eb;   /* 灰色底条 */
+  overflow: hidden;
+}
+
+.age-bar .bar-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+/* 男生进度条颜色 */
+.age-bar.male .bar-fill {
+  background: #4f46e5;
+}
+
+/* 女生进度条颜色 */
+.age-bar.female .bar-fill {
+  background: #f97373;
+}
+
+.age-values {
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
 }
